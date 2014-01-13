@@ -7,7 +7,12 @@ class AppDelegate
     # This is our new line!
     #@window.rootViewController = TapController.alloc.initWithNibName(nil, bundle: nil)
     controller = TapController.alloc.initWithNibName(nil, bundle: nil)
-    @window.rootViewController = UINavigationController.alloc.initWithRootViewController(controller)
+    nav_controller = UINavigationController.alloc.initWithRootViewController(controller)
+    alphabet_controller = AlphabetController.alloc.initWithNibName(nil, bundle: nil)
+
+    tab_controller = UITabBarController.alloc.initWithNibName(nil, bundle: nil)
+    tab_controller.viewControllers = [nav_controller, alphabet_controller]
+    @window.rootViewController = tab_controller
 
     true
   end
